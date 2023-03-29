@@ -1,0 +1,22 @@
+{
+  "name": "stringreverse",
+  "version": "1.0.0",
+  "description": "Simplest  Node.js app in a Docker container",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "docker:ls": "docker image ls",
+    "docker:ps": "docker container ls",
+    "docker:build": "docker build --file Dockerfile --tag=stringreverse .",
+    "docker:run": "docker run -p 6000:3000 -d --name=stringreverse stringreverse",
+    "docker:stop": "docker stop stringreverse",
+    "docker:shell": "docker run -it -p 6000:3000 stringreverse bash",
+    "docker:remove-all": "docker rm --force $(docker ps -a -q) && docker rmi --force $(docker images -q)"
+  },
+  "keywords": [],
+  "author": "rajasekhar",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.17.1"
+  }
+}
